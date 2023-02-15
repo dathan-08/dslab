@@ -1,0 +1,151 @@
+#include<stdio.h>
+#define N 50
+int rear=-1,front=-1;
+void enqueue(int*);
+void dequeue(int*);
+void display(int*);
+
+int main()
+{
+    int Q[N],i,choice;
+    printf("******QUEUE OPERATIONS******");
+	printf("\n1.Enqueue");
+	printf("\n2.Dequeue");
+	printf("\n3.Display");
+	printf("\n4.Exit");
+	
+
+	do
+	{
+		printf("\nEnter choice (1-4): ");
+		scanf("%d",&choice);
+		
+		switch(choice)
+		{
+			case 1: enqueue(Q);
+				break;
+			
+		    	case 2: dequeue(Q);
+				break;
+				
+			case 3: display(Q);
+				break;
+			
+			case 4: printf("Exit!!!")
+				break;
+				
+			default: printf("Choose a valid option (1-3)!!!"); 
+		}
+	}
+	while(choice!=4);
+	return 0;
+}
+void enqueue(int*Q)
+{
+    int item;
+    if(rear==N-1)
+    {
+        printf("Overflow!! Insertion not possible");
+    }
+    
+    else
+    {
+        if(front==-1 && rear==-1)
+           front=0;
+        printf("Enter element that to be inserted into a queue: ");
+        scanf("%d",&item);
+        
+        rear=rear+1;
+          
+        Q[rear]=item;
+        printf("\nElement inserted successfully");
+        
+        
+    }
+    
+}
+
+void dequeue(int*Q)
+{
+    int item2;
+    if(front==-1 && rear==-1)
+    {
+        printf("Queue is empty!!!");
+        
+    }
+    else
+    {
+	item2=Q[front];
+	if(front==rear)
+    	{
+        	front=-1;
+        	rear=-1;
+    	}
+    	else
+    	{
+       	 front=front+1;
+    	}
+   	// printf("Element deleted successfully from queue!!!");
+    	printf("\nDeleted element is : %d",item2);
+    	//display();
+    	
+    }
+}
+
+void display(int*Q)
+{
+    int i;
+    printf("\nQueue is : ");
+    for(i=front;i<=rear;i++)
+    {
+        printf("%d ",Q[i]);
+    }
+}
+
+
+
+
+
+
+OUTPUT
+
+	
+	******QUEUE OPERATIONS******
+	1.Enqueue
+	2.Dequeue
+	3.Display
+	4.Exit
+	Enter choice (1-4): 1
+	Enter element that to be inserted into a queue: 1
+	
+	Element inserted successfully
+	Enter choice (1-4): 1
+	Enter element that to be inserted into a queue: 2
+	
+	Element inserted successfully
+	Enter choice (1-4): 1
+	Enter element that to be inserted into a queue: 3
+
+	Element inserted successfully
+	Enter choice (1-4): 3
+	
+	Queue is : 1 2 3 
+	Enter choice (1-4): 2
+	
+	Deleted element is : 1
+	Enter choice (1-4): 2
+
+	Deleted element is : 2
+	Enter choice (1-4): 2
+	
+	Deleted element is : 3
+	Enter choice (1-4): 2
+	Queue is empty!!!
+	Enter choice (1-4): 4
+	Exit!!!
+	
+	
+	
+	
+	
+	
